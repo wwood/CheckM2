@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## Unreleased
+
+- Use `zenodo-backpack` from PyPI to handle CheckM2 database downloads, removing the internal implementation. [#134](https://github.com/chklovski/CheckM2/issues/134)
+
 ## 1.0.0 (2022-12-16)
 
 First official release of CheckM2!

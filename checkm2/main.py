@@ -25,7 +25,6 @@ __status__ = "Development"
 from checkm2.defaultValues import DefaultValues
 from checkm2.versionControl import VersionControl
 from checkm2 import fileManager
-from checkm2 import predictQuality
 
 
 
@@ -162,6 +161,8 @@ def main():
 
     if args.subparser_name == 'predict':
 
+        from checkm2 import predictQuality
+
         #check if folder is empty and force remove it if necessary
         if not args.resume:
             fileManager.check_empty_dir(args.output_directory, args.force)
@@ -238,6 +239,7 @@ def main():
             bin_temporary_dir.cleanup()
 
     elif args.subparser_name == 'testrun':
+        from checkm2 import predictQuality
         logging.info("Test run: Running quality prediction workflow on test genomes with {} threads.".format(args.threads))
         logging.info('Running checksum on test genomes.')
         if VersionControl().checksum_test_genomes():

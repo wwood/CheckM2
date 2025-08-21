@@ -1,3 +1,4 @@
+
 from setuptools import setup, find_packages
 
 setup(
@@ -14,7 +15,7 @@ setup(
     include_package_data=True,
     url='https://github.com/chklovski/CheckM2',
     license='GPL-3.0',
-    install_requires=[],
+    install_requires=['zenodo-backpack'],
     author='Alex Chklovski',
     entry_points={
         'console_scripts': [
