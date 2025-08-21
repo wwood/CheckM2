@@ -10,7 +10,7 @@ import tempfile
 
 from checkm2 import versionControl
 from checkm2.defaultValues import DefaultValues
-from checkm2 import zenodo_backpack
+from zenodo_backpack import ZenodoBackpackDownloader
 
 class DiamondDB:
     def __init__(self):
@@ -103,8 +103,8 @@ class DiamondDB:
             
         
         make_sure_path_exists(os.path.join(download_location, 'CheckM2_database'))
-        
-        backpack_downloader = zenodo_backpack.zenodo_backpack_downloader('INFO')
+
+        backpack_downloader = ZenodoBackpackDownloader()
         highest_compatible_version, DOI = versionControl.VersionControl().return_highest_compatible_DB_version()
 
         
@@ -121,7 +121,7 @@ class DiamondDB:
                               .format(download_location))
                 sys.exit(1)
             
-            backpack_downloader.download_and_extract(download_location, DOI, progress_bar=True, no_check_version=False)
+            backpack_downloader.download_and_extract(download_location, DOI, progress_bar=True)
             
             diamond_definition['DBPATH'] = os.path.abspath(diamond_loc_final)
             if not no_write_json_db:
